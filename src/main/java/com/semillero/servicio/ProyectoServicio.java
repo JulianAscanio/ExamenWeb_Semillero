@@ -18,30 +18,4 @@ public class ProyectoServicio {
         return proyectoRepository.findAll();
     }
 
-    public Proyecto obtenerProyecto(int id) {
-        return proyectoRepository.findById(id).orElse(null);
-    }
-
-    public Proyecto crearProyecto(Proyecto proyecto) {
-        return proyectoRepository.save(proyecto);
-    }
-
-    public Proyecto actualizarProyecto(int id, Proyecto proyectoDetails) {
-        Proyecto proyecto = proyectoRepository.findById(id).orElse(null) ;
-        if (proyecto != null) {
-            proyecto.setNombre(proyectoDetails.getNombre());
-            proyecto.setObjetivoGeneral(proyectoDetails.getObjetivoGeneral());
-            proyecto.setLinea(proyectoDetails.getLinea());
-            proyecto.setResponsable(proyectoDetails.getResponsable());
-            proyecto.setFechaInicio(proyectoDetails.getFechaInicio());
-            proyecto.setFechaFin(proyectoDetails.getFechaFin());
-            return proyectoRepository.save(proyecto);
-        }
-        return null;
-    }
-
-    public void eliminarProyecto(int id) {
-        proyectoRepository.deleteById(id);
-    }
-
 }

@@ -16,23 +16,13 @@ import lombok.Data;
 @Table(name = "proyecto")
 public class Proyecto {
 
-    @Id
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
+    private Long id;
+    
     private String nombre;
-    private String objetivoGeneral;
-
-    @ManyToOne
-    @JoinColumn(name = "linea_id")
-    private Linea linea;
-
-    @ManyToOne
-    @JoinColumn(name = "responsable_id")
-    private Integrante responsable;
-
-    private Date fechaInicio;
-    private Date fechaFin;
+    private String descripcion;
+    private String estado;
 
 }
 

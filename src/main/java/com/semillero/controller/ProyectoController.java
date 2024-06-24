@@ -27,27 +27,4 @@ public class ProyectoController {
     public List<Proyecto> listarProyectos() {
         return proyectoService.listarProyectos();
     }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Proyecto> obtenerProyecto(@PathVariable int id) {
-        Proyecto proyecto = proyectoService.obtenerProyecto(id);
-        return proyecto != null ? ResponseEntity.ok(proyecto) : ResponseEntity.notFound().build();
-    }
-
-    @PostMapping
-    public Proyecto crearProyecto(@RequestBody Proyecto proyecto) {
-        return proyectoService.crearProyecto(proyecto);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<Proyecto> actualizarProyecto(@PathVariable int id, @RequestBody Proyecto proyectoDetails) {
-        Proyecto proyecto = proyectoService.actualizarProyecto(id, proyectoDetails);
-        return proyecto != null ? ResponseEntity.ok(proyecto) : ResponseEntity.notFound().build();
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarProyecto(@PathVariable int id) {
-        proyectoService.eliminarProyecto(id);
-        return ResponseEntity.noContent().build();
-    }
 }
